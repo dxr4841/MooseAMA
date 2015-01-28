@@ -1,0 +1,8 @@
+<div class ="all-questions" >
+  <ul class = "question-list">
+    <% @questions.each do |question| %>
+    <li> <%= erb :'question/single', locals: {question: question} %> </li>
+    <% end %>
+  </ul>
+
+</div>
