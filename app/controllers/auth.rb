@@ -4,7 +4,7 @@ get '/signin' do
 end
 
 post '/signin' do
-  user = User.find_by(name: params[:user][:name])
+  user = User.find_by(username: params[:user][:username])
 
   if user.try(:authenticate, params[:user][:password])
     session[:user_id] = user.id
