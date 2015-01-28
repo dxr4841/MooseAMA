@@ -8,7 +8,17 @@
 <% end %>
 <div class='user-asked'>
 <h3>Questions you asked</h3>
-
+  <ul class = "question-list">
+    <% @user.asked_questions.each do |question| %>
+    <li> <%= erb :'question/single', locals: {question: question}  %> </li>
+    <% end %>
+  </ul>
 </div>
-<h3>Questions asked to you</h3>
-<div class='user-replied'></div>
+<div class='user-replied'>
+  <h3>Questions asked to you</h3>
+  <ul class = "question-list">
+  <% @user.replied_questions.each do |question| %>
+    <li> <%= erb :'question/single', locals: {question: question}  %> </li>
+  <% end %>
+  </ul>
+</div>
