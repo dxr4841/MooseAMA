@@ -8,3 +8,5 @@ put "/users/:id" do |id|
   user.update(params[:user])
   redirect "/users/#{user.id}"
 end
+
+
