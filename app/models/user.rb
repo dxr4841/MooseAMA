@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :askers, through: :replied_questions, source: :asker
   has_many :repliers, through: :asked_questions, source: :replier
+
+  validates :username, presence: true
+
 end
