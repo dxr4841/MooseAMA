@@ -13,3 +13,9 @@ post "/questions" do
   question.update(asker_id: current_user.id)
   redirect "/questions/all"
 end
+
+puts "/questions/:id" do |id|
+  question = Question.find(id)
+  question.update(params[:question])
+  redirect "/questions/#{question.asker_id}"
+end
