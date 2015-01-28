@@ -16,6 +16,7 @@
     <li> <%= erb :'question/single', locals: {question: question} %>
       <% if current_user.id == question.asker_id %>
         <%= erb :'question/update', locals: {question: question}%>
+        <%= erb :'question/delete', locals: {question: question}%>
       <% end %>
      </li>
     <% end %>
