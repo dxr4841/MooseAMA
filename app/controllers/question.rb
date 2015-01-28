@@ -11,11 +11,15 @@ end
 put "/questions/:id" do |id|
   question = Question.find(id)
   question.update(params[:question])
-  redirect "/users/#{question.asker_id}"
+  redirect "/users/#{current_user.id}"
 end
 post "/questions" do
   question = Question.create(params[:question])
   question.update(asker_id: current_user.id)
-  redirect "/questions/all"
+  redirect "/users/#{current_user.id}"
 end
 
+delete "/questions/:id" do |id|
+  Question.find(id).delete
+  redirect "/users/#{current_user.id}"
+end
