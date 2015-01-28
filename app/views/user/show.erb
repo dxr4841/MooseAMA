@@ -25,7 +25,12 @@
   <h3>Questions asked to you</h3>
   <ul class = "question-list">
   <% @user.replied_questions.each do |question| %>
-    <li> <%= erb :'question/single', locals: {question: question}  %> </li>
+    <li> <%= erb :'question/single', locals: {question: question}  %>
+      <% if current_user.id == question.asker_id %>
+        <%= erb :'question/update', locals: {question: question}%>
+      <% end %>
+
+    </li>
   <% end %>
   </ul>
 </div>
