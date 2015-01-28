@@ -22,6 +22,14 @@
 <body>
 <div id="content">
   <header>
+    <div id="signin_bar">
+    <% if current_user %>
+      <%= current_user.name %> | <a href="/signout">Signout</a>
+
+    <% else %>
+      <a href="/signin">Signin</a> | <a href="/signup">Signup</a>
+    <% end %>
+    </div>
   </header>
   <%= yield %>
 </div>
