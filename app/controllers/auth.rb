@@ -4,7 +4,14 @@ get '/signin' do
 end
 
 post '/signin' do
+  user = User.find_by(name: params[:user][:name])
 
+  if user.try(:authenticate, params[:user][:password])
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    redirect '/signin'
+  end
 end
 
 get '/signup' do
