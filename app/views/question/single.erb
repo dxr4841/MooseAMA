@@ -1,4 +1,4 @@
 <div class = "question-display">
-  <p><a href="/users/<%=question.asker_id%>">asker</a> has asked<a href="/users/<%=question.replier_id%>">replier</a></p>
+  <p><a href="/users/<%=question.asker_id%>"><%=question.asker_name%></a> has asked <a href="/users/<%=question.replier_id%>"><%=question.replier_name%></a></p>
   <p><%= question.content%></p>
 </div>
