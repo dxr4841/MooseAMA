@@ -1,6 +1,6 @@
 
 post '/answer' do
-
+  answer = Answer.create(params[:answer])
 end
 
 put '/answer/:id' do

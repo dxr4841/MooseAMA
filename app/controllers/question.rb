@@ -16,6 +16,7 @@ end
 post "/questions" do
   question = Question.create(params[:question])
   question.update(asker_id: current_user.id)
+  Answer.create(user_id: replier_id)
   redirect "/users/#{current_user.id}"
 end
 
