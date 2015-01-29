@@ -1,6 +1,6 @@
-<div class = "question-form">
+<div class = "question_form">
   <p>Ask me Anything</p>
-  <form action='/questions', method='POST'>
+  <form action='/questions', method='POST' class"new_question">
     <input type='text' name='question[content]'>
     <input type='hidden' name='question[replier_id]' value="<%=user.id %>">
     <input type='submit' value='submit'>

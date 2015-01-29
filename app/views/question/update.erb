@@ -1,5 +1,5 @@
-<div class = "question-form">
-  <form action='/questions/<%= question.id %>' method='POST'>
+<div class = "question_update">
+  <form action='/questions/<%= question.id %>' method='POST' class ="question_update_form">
     <input type='hidden' name='_method' value='PUT'>
     <input type='hidden' name='question[id]'value='<%=question.id %>'>
     <input type='text' name='question[content]' value ="<%=question.content%>">
