@@ -12,7 +12,6 @@ put "/questions/:id" do |id|
   question = Question.find(id)
   question.update(params[:question])
   if request.xhr?
-    p "*" * 30
     erb :'question/single', locals:{question: question}, layout: false
   else
     redirect "/users/#{current_user.id}"
@@ -27,5 +26,9 @@ end
 
 delete "/questions/:id" do |id|
   Question.find(id).delete
-  redirect "/users/#{current_user.id}"
+  if request.xhr?
+    "delete"
+  else
+    redirect "/users/#{current_user.id}"
+  end
 end

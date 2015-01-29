@@ -1,5 +1,5 @@
-<div class = "question-delete">
-  <form action='/questions/<%= question.id %>' method='POST'>
+<div class = "question_delete">
+  <form action='/questions/<%= question.id %>' method='POST' class = "question_delete_form">
     <input type='hidden' name='_method' value='DELETE'>
     <input type='submit' value='delete'>
   </form>
