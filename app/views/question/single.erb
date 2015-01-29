@@ -2,7 +2,9 @@
   <p><a href="/users/<%=question.asker_id%>"><%=question.asker_name%></a> has asked <a href="/users/<%=question.replier_id%>"><%=question.replier_name%></a></p>
   <p><%= question.content%></p>
 </div>
- <% if current_user.id == question.asker_id %>
-    <%= erb :'/question/update', locals: {question: question}%>
-    <%= erb :'/question/delete', locals: {question: question}%>
-<% end %>
+  <% if current_user %>
+     <% if current_user.id == question.asker_id %>
+        <%= erb :'/question/update', locals: {question: question}%>
+        <%= erb :'/question/delete', locals: {question: question}%>
+    <% end %>
+  <% end %>
