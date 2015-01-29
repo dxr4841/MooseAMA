@@ -3,6 +3,8 @@ class Question < ActiveRecord::Base
   belongs_to :asker, class_name: "User"
   belongs_to :replier, class_name: "User"
 
+  has_one :answer
+
   def asker_name
     User.find_by(id: self.asker_id).username
   end
