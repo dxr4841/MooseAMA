@@ -1,0 +1,8 @@
+<div class = "answer-form">
+  <form action='/answer', method='POST'>
+    <p>answer:</p>
+    <input type='text' name='answer[content]'>
+    <input type='hidden' name='answer[question_id]' value="<%=question.id %>">
+    <input type='submit' value='submit'>
+  </form>
+</div>
