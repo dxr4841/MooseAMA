@@ -8,7 +8,7 @@ get "/questions/:id" do |id|
   erb :'/question/single', locals: {question: @question}
 end
 
-put "/questions/:id" do |id|
+put "/questions/:id", auth: :user do |id|
   question = Question.find(id)
   question.update(params[:question])
   if request.xhr?
@@ -17,14 +17,14 @@ put "/questions/:id" do |id|
     redirect "/users/#{current_user.id}"
   end
 end
-post "/questions" do
+post "/questions", auth: :user do
   question = Question.create(params[:question])
   question.update(asker_id: current_user.id)
   Answer.create(user_id: replier_id)
   redirect "/users/#{current_user.id}"
 end
 
-delete "/questions/:id" do |id|
+delete "/questions/:id", auth: :user do |id|
   Question.find(id).delete
   if request.xhr?
     "delete"

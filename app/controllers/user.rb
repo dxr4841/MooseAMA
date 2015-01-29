@@ -3,7 +3,7 @@ get '/users/:id' do |id|
   erb :'/user/show'
 end
 
-put "/users/:id" do |id|
+put "/users/:id", auth: :user do |id|
  user = User.find(id)
   user.update(params[:user])
   redirect "/users/#{user.id}"

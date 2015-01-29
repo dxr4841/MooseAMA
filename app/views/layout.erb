@@ -25,10 +25,12 @@
     <div id="signin_bar">
     <% if current_user %>
       <a href="/users/<%= current_user.id %>"><%= current_user.username %></a> | <a href="/signout">Signout</a>
-
     <% else %>
       <a href="/signin">Signin</a> | <a href="/signup">Signup</a>
     <% end %>
+    </div>
+    <div class='error_bar'>
+      <%= display_errors! %>
     </div>
   </header>
   <%= yield %>
